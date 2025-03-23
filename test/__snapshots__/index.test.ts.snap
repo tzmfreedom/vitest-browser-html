@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`render html file 1`] = `
+<div>
+  HTMLFile
+</div>
+`;
+
+exports[`render html string 1`] = `
+<div>
+  String
+</div>
+`;

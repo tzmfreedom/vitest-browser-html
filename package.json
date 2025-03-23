@@ -1,0 +1,39 @@
+{
+  "name": "vitest-browser-html",
+  "type": "module",
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "*.d.ts",
+    "*.mjs",
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tzmfreedom/vitest-browser-vanilla.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tzmfreedom/vitest-browser-vanilla/issues"
+  },
+  "homepage": "https://github.com/tzmfreedom/vitest-browser-vanilla#readme",
+  "description": "",
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@types/node": "^22.13.11",
+    "@vitest/browser": "*",
+    "playwright": "^1.51.1",
+    "typescript": "^5.8.2",
+    "vitest": "*"
+  },
+  "peerDependencies": {
+    "@vitest/browser": "^2.1.0 || ^3.0.0-0",
+    "vitest": "^2.1.0 || ^3.0.0-0"
+  }
+}
