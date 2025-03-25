@@ -6,6 +6,16 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": ["*.d.ts", "*.mjs", "dist"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./pure": {
+      "types": "./dist/pure.d.ts",
+      "default": "./dist/pure.js"
+    }
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
