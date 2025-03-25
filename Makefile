@@ -14,3 +14,7 @@ test:
 .PHONY: build
 build:
 	npx tsc
+
+.PHONY: publish
+publish: build
+	npm publish
