@@ -5,11 +5,7 @@
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": [
-    "*.d.ts",
-    "*.mjs",
-    "dist"
-  ],
+  "files": ["*.d.ts", "*.mjs", "dist"],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

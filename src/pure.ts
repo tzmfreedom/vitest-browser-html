@@ -1,5 +1,13 @@
-import { type FsOptions, type LocatorSelectors, server } from "@vitest/browser/context";
-import { debug, getElementLocatorSelectors, type PrettyDOMOptions } from "@vitest/browser/utils";
+import {
+  type FsOptions,
+  type LocatorSelectors,
+  server,
+} from '@vitest/browser/context';
+import {
+  debug,
+  getElementLocatorSelectors,
+  type PrettyDOMOptions,
+} from '@vitest/browser/utils';
 
 const { readFile } = server.commands;
 
@@ -14,7 +22,7 @@ export async function render(src: string): Promise<RenderResult> {
   if (src.trim().startsWith('<')) {
     return renderString(src);
   }
-  return await renderFile(src)
+  return await renderFile(src);
 }
 
 export function renderString(html: string): RenderResult {
@@ -49,4 +57,3 @@ export function cleanup() {
     }
   }
 }
-

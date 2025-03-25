@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest';
 import { render, renderString, renderFile } from '../src';
 import { page } from '@vitest/browser/context';
-import "@vitest/browser/matchers";
+import '@vitest/browser/matchers';
 
 test('renderString', async () => {
   const screen = renderString('<div>String</div>');
