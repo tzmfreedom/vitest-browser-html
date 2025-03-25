@@ -7,6 +7,7 @@ import {
 import {
   type FsOptions,
   type LocatorSelectors,
+  page,
   server,
 } from '@vitest/browser/context';
 
@@ -19,9 +20,21 @@ export interface RenderResult extends LocatorSelectors {
   debug(maxLength?: number, options?: PrettyDOMOptions): void;
 }
 
+page.extend({
+  render,
+  [Symbol.for('vitest:component-cleanup')]: cleanup,
+})
+
 beforeEach(() => {
   cleanup();
 });
+
+export async function render(src: string): Promise<RenderResult> {
+  if (src.trim().startsWith('<')) {
+    return renderString(src);
+  }
+  return await renderFile(src)
+}
 
 export function renderString(html: string): RenderResult {
   const template = document.createElement('template');
@@ -53,5 +66,12 @@ function cleanup() {
     if (mountedContainer.parentNode === document.body) {
       document.body.removeChild(mountedContainer);
     }
+  }
+}
+
+
+declare module '@vitest/browser/context' {
+  interface BrowserPage {
+    render: typeof render
   }
 }

@@ -1,5 +1,11 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`page.render: file 1`] = `
+<div>
+  HTMLFile
+</div>
+`;
+
 exports[`render html file 1`] = `
 <div>
   HTMLFile
@@ -7,6 +13,30 @@ exports[`render html file 1`] = `
 `;
 
 exports[`render html string 1`] = `
+<div>
+  String
+</div>
+`;
+
+exports[`render: file 1`] = `
+<div>
+  HTMLFile
+</div>
+`;
+
+exports[`render: string 1`] = `
+<div>
+  String
+</div>
+`;
+
+exports[`renderFile 1`] = `
+<div>
+  HTMLFile
+</div>
+`;
+
+exports[`renderString 1`] = `
 <div>
   String
 </div>
