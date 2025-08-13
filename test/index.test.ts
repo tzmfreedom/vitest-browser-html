@@ -1,10 +1,10 @@
 import { expect, test } from 'vitest';
-import { render, renderString, renderFile } from '../src';
+import { render, renderFile } from '../src';
 import { page } from '@vitest/browser/context';
 import '@vitest/browser/matchers';
 
 test('renderString', async () => {
-  const screen = renderString('<div>String</div>');
+  const screen = render('<div>String</div>');
   await expect.element(screen.getByText('String')).toBeVisible();
   expect(screen.container).toMatchSnapshot();
 });
@@ -22,13 +22,13 @@ test('render: string', async () => {
 });
 
 test('render: file', async () => {
-  const screen = await render('./fixtures/index.html');
+  const screen = await renderFile('./fixtures/index.html');
   await expect.element(screen.getByText('HTMLFile')).toBeVisible();
   expect(screen.container).toMatchSnapshot();
 });
 
-test('page.render: file', async () => {
-  const screen = await page.render('./fixtures/index.html');
-  await expect.element(screen.getByText('HTMLFile')).toBeVisible();
+test('page.render: string', async () => {
+  const screen = await page.render('<div>String</div>');
+  await expect.element(screen.getByText('String')).toBeVisible();
   expect(screen.container).toMatchSnapshot();
 });
