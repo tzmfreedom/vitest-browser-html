@@ -7,19 +7,19 @@ import { render } from 'vitest-browser-html'
 import { page } from '@vitest/browser/context'
 import { expect, test } from 'vitest'
 
-test('When string param start with `<`, it render as HTML string.', async () => {
+test('render HTML string', async () => {
   const screen = await render('<div>String</div>');
   await expect.element(screen.getByText('String')).toBeVisible();
 });
 
-test('When string param start without `<`, it render as HTML file.', async () => {
-  const screen = await render('/path/to/file');
+test('render with file path', async () => {
+  const screen = await renderFile('/path/to/file');
   await expect.element(screen.getByText('File')).toBeVisible();
 });
 
 test('You can call page.render() method.', async () => {
-  const screen = await page.render('/path/to/file');
-  await expect.element(screen.getByText('File')).toBeVisible();
+  const screen = await page.render('String');
+  await expect.element(screen.getByText('String')).toBeVisible();
 });
 ```
 
