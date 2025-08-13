@@ -18,20 +18,9 @@ export interface RenderResult extends LocatorSelectors {
   debug(maxLength?: number, options?: PrettyDOMOptions): void;
 }
 
-export async function render(src: string): Promise<RenderResult> {
-  if (src.trim().startsWith('<')) {
-    return renderString(src);
-  }
-  return await renderFile(src);
-}
-
-export function renderString(html: string): RenderResult {
-  const template = document.createElement('template');
-  template.innerHTML = html;
-  const container = template.content.firstElementChild;
-  if (container === null) {
-    throw new Error('failed rendering with document.createElement');
-  }
+export function render(html: string): RenderResult {
+  const container = document.createElement('div');
+  container.innerHTML = html;
   document.body.appendChild(container);
   mountedContainers.add(container);
 
@@ -47,7 +36,7 @@ export async function renderFile(
   options?: BufferEncoding | FsOptions,
 ): Promise<RenderResult> {
   const body = await readFile(file, options);
-  return renderString(body.toString());
+  return render(body.toString());
 }
 
 export function cleanup() {
